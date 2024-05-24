@@ -13,6 +13,8 @@ public class Main {
 		Scanner sc = new Scanner(new FileReader("entrada.in"));
 		int cantidadVendedoras = sc.nextInt();
 		int ventasDeVendedora;
+		int mayorCantidadVentas = 0;
+		int salida;
 		
 		Vendedora vendedoras[] = new Vendedora[cantidadVendedoras];
 		
@@ -23,14 +25,17 @@ public class Main {
 				importesVendedora.add(sc.nextInt());
 			}
 			vendedoras[i] = new Vendedora(ventasDeVendedora, importesVendedora);
+			
+			//busco mayor para caso c
+			if(ventasDeVendedora > mayorCantidadVentas) {
+				mayorCantidadVentas = ventasDeVendedora;
+			}
 		}
 		int numeroVentasConsecutivas = sc.nextInt();
 		sc.close();
 		
-		Resolucion.calcularGanadora( vendedoras, numeroVentasConsecutivas );
+		salida = Resolucion.calcularGanadora( vendedoras, numeroVentasConsecutivas, mayorCantidadVentas);
 		
-		
-
 	}
 	
 	
