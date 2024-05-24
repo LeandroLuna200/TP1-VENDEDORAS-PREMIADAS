@@ -1,11 +1,12 @@
 package tp1_Vendedoras_Premiadas;
+import java.util.ArrayList;
 
 public class Vendedora {
 	private int cantidadDeVentas;
-	private int[] importes;
+	private ArrayList<Integer> importes;
 	private boolean enConcurso = true;
 
-	public Vendedora(int ventasDeVendedora, int[] importesVendedora) {
+	public Vendedora(int ventasDeVendedora, ArrayList<Integer> importesVendedora) {
 		this.cantidadDeVentas = ventasDeVendedora;
 		this.importes = importesVendedora;
 	}
@@ -18,11 +19,11 @@ public class Vendedora {
 		this.cantidadDeVentas = cantidadDeVentas;
 	}
 
-	public int[] getImportes() {
+	public ArrayList<Integer> getImportes() {
 		return importes;
 	}
 
-	public void setImportes(int[] importes) {
+	public void setImportes(ArrayList<Integer> importes) {
 		this.importes = importes;
 	}
 

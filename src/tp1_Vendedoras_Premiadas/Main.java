@@ -3,6 +3,7 @@ package tp1_Vendedoras_Premiadas;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -17,9 +18,9 @@ public class Main {
 		
 		for (int i = 0; i < cantidadVendedoras; i++) {
 			ventasDeVendedora = sc.nextInt();
-			int[] importesVendedora = new int[ventasDeVendedora];
+			ArrayList<Integer> importesVendedora = new ArrayList<>(ventasDeVendedora);
 			for (int j = 0; j < ventasDeVendedora; j++) {
-				importesVendedora[j] = sc.nextInt();
+				importesVendedora.add(sc.nextInt());
 			}
 			vendedoras[i] = new Vendedora(ventasDeVendedora, importesVendedora);
 		}
