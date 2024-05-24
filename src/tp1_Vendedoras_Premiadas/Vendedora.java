@@ -2,6 +2,8 @@ package tp1_Vendedoras_Premiadas;
 import java.util.ArrayList;
 
 public class Vendedora {
+	public static int id = 0;
+	private int idVendedora;
 	private int cantidadDeVentas;
 	private ArrayList<Integer> importes;
 	private boolean enConcurso = true;
@@ -9,6 +11,7 @@ public class Vendedora {
 	public Vendedora(int ventasDeVendedora, ArrayList<Integer> importesVendedora) {
 		this.cantidadDeVentas = ventasDeVendedora;
 		this.importes = importesVendedora;
+		this.idVendedora = ++Vendedora.id;
 	}
 
 	public int getCantidadDeVentas() {
@@ -37,6 +40,20 @@ public class Vendedora {
 	
 	public void quitarDeConcurso() {
 		setEnConcurso(false);
+	}
+	
+	public int getIdVendedora() {
+		return idVendedora;
+	}
+
+	public void setIdVendedora(int idVendedora) {
+		this.idVendedora = idVendedora;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Vendedora [idVendedora=" + idVendedora + "]";
 	}
 
 }
