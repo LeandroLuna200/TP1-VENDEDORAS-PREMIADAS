@@ -14,7 +14,7 @@ public class Archivo {
 	public static DataFile leerArchivo(String nombreArchivo) throws FileNotFoundException {
 		
 		DataFile lectura = new DataFile();
-		Scanner sc = new Scanner(new FileReader(nombreArchivo));
+		Scanner sc = new Scanner(new FileReader("LoteDePrueba/Entrada/" + nombreArchivo + ".in"));
 		int cantidadVendedoras = sc.nextInt();
 		
 		int mayorCantidadVentas = 0;
@@ -45,16 +45,18 @@ public class Archivo {
 		return lectura;
 	}
 
-	public static void guardarEnArchivo(HashMap<Integer, Integer> salida, int cantidadVentasConsecutivas) {
+	public static void guardarEnArchivo(Resolucion lote1, HashMap<Integer, Integer> salida, int cantidadVentasConsecutivas, String nombreArchivo) {
 
-		try (PrintWriter writer = new PrintWriter(new FileWriter("salida.out"))) {
+		//** 1 hubo ganador // 0 no hay ganadora // < 1 no se puede desempatar
+		try (PrintWriter writer = new PrintWriter(new FileWriter("LoteDePrueba/Salida/" + nombreArchivo + ".out"))) {
 			if (salida.size() == 1) {
 				int key = (int) salida.keySet().toArray()[0];
 				writer.println(key);
-				writer.println( Resolucion.getCantidadVentasConsecutivas() + " " + salida.get(key));
+				writer.println( lote1.getCantidadVentasConsecutivas() + " " + salida.get(key));
 				
 				System.out.println(
-						"Gana:" + salida + "[CantidadVentas=" + Resolucion.getCantidadVentasConsecutivas() + "]");
+						"Gana:" + key + "/ CantidadVentas=" + lote1.getCantidadVentasConsecutivas()
+								+ "/ Monto:" + salida.get(key));
 			} else if (salida.size() == 0) {
 				writer.println("No hay ganadoras");
 				System.out.println("No hay ganadoras");

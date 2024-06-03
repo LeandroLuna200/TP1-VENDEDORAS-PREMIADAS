@@ -6,27 +6,27 @@ import java.util.HashMap;
 
 public class Resolucion {
 
-	private static int nroVendedora;
-	private static int cantidadVentasConsecutivas;
-	private static int importeGanador;
+	private int nroVendedora;
+	private int cantidadVentasConsecutivas;
+	private int importeGanador;
 	
-	public static int getImporteGanador() {
+	public int getImporteGanador() {
 		return importeGanador;
 	}
 
-	public static void setImporteGanador(int importeGanador) {
-		Resolucion.importeGanador = importeGanador;
+	public void setImporteGanador(int importeGanador) {
+		this.importeGanador = importeGanador;
 	}
 
-	public static int getCantidadVentasConsecutivas() {
+	public int getCantidadVentasConsecutivas() {
 		return cantidadVentasConsecutivas;
 	}
 
-	public static void setCantidadVentasConsecutivas(int cantidadVentasConsecutivas) {
-		Resolucion.cantidadVentasConsecutivas = cantidadVentasConsecutivas;
+	public void setCantidadVentasConsecutivas(int cantidadVentasConsecutivas) {
+		this.cantidadVentasConsecutivas = cantidadVentasConsecutivas;
 	}
 
-	public static HashMap<Integer, Integer> calcularGanadora(ArrayList<Vendedora> vendedoras, int cantidadVentas,
+	public HashMap<Integer, Integer> calcularGanadora(ArrayList<Vendedora> vendedoras, int cantidadVentas,
 			int mayorCantidadVentas) {
 		setCantidadVentasConsecutivas(cantidadVentas);
 		HashMap<Integer, Integer> posiblesGanadoras = new HashMap<Integer, Integer>();
@@ -59,7 +59,7 @@ public class Resolucion {
 		return posiblesGanadoras;
 	}
 
-	private static ArrayList<ArrayList<Integer>> cargarImportesIniciales(ArrayList<Vendedora> vendedoras,
+	private ArrayList<ArrayList<Integer>> cargarImportesIniciales(ArrayList<Vendedora> vendedoras,
 			int cantidadConsecutiva) {
 		ArrayList<ArrayList<Integer>> calculosParciales = new ArrayList<>();
 
@@ -74,7 +74,7 @@ public class Resolucion {
 		return calculosParciales;
 	}
 
-	private static void calcularImporteConsecutivo(ArrayList<Integer> ventas, ArrayList<Integer> calculosParciales,
+	private void calcularImporteConsecutivo(ArrayList<Integer> ventas, ArrayList<Integer> calculosParciales,
 			int cantidadVentasConsecutivas2) {
 
 		Integer suma;
@@ -87,7 +87,7 @@ public class Resolucion {
 		calculosParciales.remove(calculosParciales.size()-1);
 	}
 
-	private static HashMap<Integer, Integer> buscaMayor(ArrayList<ArrayList<Integer>> calculosParciales,
+	private HashMap<Integer, Integer> buscaMayor(ArrayList<ArrayList<Integer>> calculosParciales,
 			ArrayList<Vendedora> vendedoras) {
 		HashMap<Integer, Integer> vendedoras_mayores = new HashMap<Integer, Integer>();
 		ArrayList<Integer> mayores = new ArrayList<Integer>(); // maximo de cada vendedor
@@ -104,7 +104,7 @@ public class Resolucion {
 		// busco cuales vendedoras tienen ese mayor
 		for (int i = 0; i < vendedoras.size(); i++) {
 			if (mayores.get(i) == maximo) {
-				vendedoras_mayores.put(vendedoras.get(i).getIdVendedora(), maximo); // las agrego a posibles ganadoras
+				vendedoras_mayores.put(i + 1 , maximo); // las agrego a posibles ganadoras
 			}
 		}
 		return vendedoras_mayores;

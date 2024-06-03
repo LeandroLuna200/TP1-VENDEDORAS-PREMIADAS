@@ -2,7 +2,7 @@ package tp1_Vendedoras_Premiadas;
 import java.util.ArrayList;
 
 public class Vendedora {
-	public static int id = 0;
+	public int id = 0;
 	private int idVendedora;
 	private int cantidadDeVentas;
 	private ArrayList<Integer> importes;
@@ -11,7 +11,8 @@ public class Vendedora {
 	public Vendedora(int ventasDeVendedora, ArrayList<Integer> importesVendedora) {
 		this.cantidadDeVentas = ventasDeVendedora;
 		this.importes = importesVendedora;
-		this.idVendedora = ++Vendedora.id;
+		this.idVendedora = ++id;
+		id++;
 	}
 
 	public int getCantidadDeVentas() {
