@@ -54,6 +54,8 @@ public class Resolucion {
 				}
 				// vuelvo a buscar mayores
 				posiblesGanadoras = buscaMayor(calculosParciales, vendedoras);
+				
+				
 			}
 		}
 		return posiblesGanadoras;
@@ -105,6 +107,9 @@ public class Resolucion {
 		for (int i = 0; i < vendedoras.size(); i++) {
 			if (mayores.get(i) == maximo) {
 				vendedoras_mayores.put(i + 1 , maximo); // las agrego a posibles ganadoras
+			}else {
+				//** E n caso de no empatar, las saco de concurso.
+				vendedoras.get(i).quitarDeConcurso(); 
 			}
 		}
 		return vendedoras_mayores;

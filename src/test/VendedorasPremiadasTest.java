@@ -37,27 +37,27 @@ public class VendedorasPremiadasTest {
 //		assertTrue(miCuenta.depositarDinero(10000));
 	}
 	
-//	@Test
-//	public void soloDesempateEntreVendedorasEmpatadasTest() throws FileNotFoundException {
-//		// Desempate_con_todas_las_Ventas.in
-//
-//		// Arrange
-//		String nombreArchivo = "solo_vendedoras_que_empataron";
-//		Resolucion lote1 = new Resolucion();
-//		DataFile lectura = Archivo.leerArchivo(nombreArchivo);
-//		
-//		// Act
-//		HashMap<Integer, Integer> salida = lote1.calcularGanadora(lectura.getVentasDeVendedora(),
-//				lectura.getNumeroVentasConsecutivas(), lectura.getMayorCantidadVentas());
-//		int keyVendedora = (int) salida.keySet().toArray()[0];
-//		int cantVConsecutivas = lote1.getCantidadVentasConsecutivas();
-//		int sumaTotal = salida.get(keyVendedora);
-//				
-//		// Assert
-//		assertEquals(3, keyVendedora, 0.0);
-//		assertEquals(3, cantVConsecutivas, 0.0);
-//		assertEquals(160, sumaTotal, 0.0);
-//	}
+	@Test
+	public void soloDesempateEntreVendedorasEmpatadasTest() throws FileNotFoundException {
+		// Desempate_con_todas_las_Ventas.in
+
+		// Arrange
+		String nombreArchivo = "solo_vendedoras_que_empataron";
+		Resolucion lote1 = new Resolucion();
+		DataFile lectura = Archivo.leerArchivo(nombreArchivo);
+		
+		// Act
+		HashMap<Integer, Integer> salida = lote1.calcularGanadora(lectura.getVentasDeVendedora(),
+				lectura.getNumeroVentasConsecutivas(), lectura.getMayorCantidadVentas());
+		int keyVendedora = (int) salida.keySet().toArray()[0];
+		int cantVConsecutivas = lote1.getCantidadVentasConsecutivas();
+		int sumaTotal = salida.get(keyVendedora);
+				
+		// Assert
+		assertEquals(3, keyVendedora, 0.0);
+		assertEquals(3, cantVConsecutivas, 0.0);
+		assertEquals(160, sumaTotal, 0.0);
+	}
 	
 	@Test
 	public void vuelveAConsiderarTodasLasVentasTest() throws FileNotFoundException {
